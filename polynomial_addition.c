@@ -65,11 +65,12 @@ int main(){
         }
 printf("The Resultant Polynomial:\n");
 for(a=0; a<m; a++){
-if(p1[a].exp != 0){
-    printf("%d(x^%d)+", p1[a].coeff, p1[a].exp);
+if(p3[a].exp != 0){
+    printf("%d(x^%d)+", p3[a].coeff, p3[a].exp);
     }
   else{
-    printf("%d\n", p1[a].coeff);
+    printf("%d\n", p3[a].coeff);
     }
+}
 return 0;
 }
