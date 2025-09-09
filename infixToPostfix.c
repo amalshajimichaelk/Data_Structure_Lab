@@ -34,6 +34,7 @@ int precedence(char c) {
     {
         return 2;
     }
+        
      else if (c == '+' || c == '-') 
     {
         return 1;
