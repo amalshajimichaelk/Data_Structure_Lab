@@ -1,15 +1,12 @@
 #include <stdio.h>
 #define MAX 100
 #include <ctype.h>
-
 char stack[MAX];
 int top = -1;
-
 void push(char c) 
 {
     stack[++top] = c;
 }
-
 char pop() {
     if (top == -1) 
     {
@@ -20,7 +17,6 @@ char pop() {
         return stack[top--];
     }
 }
-
 char peek() {
     if (top == -1) 
     {
@@ -29,7 +25,6 @@ char peek() {
         return stack[top];
     }
 }
-
 int precedence(char c) {
     if (c == '^') 
     {
@@ -48,7 +43,6 @@ int precedence(char c) {
         return 0;
     }
 }
-
 int isOperator(char c) {
     if (c == '^' || c == '*' || c == '/' || c == '+' || c == '-') {
         return 1;
@@ -56,11 +50,9 @@ int isOperator(char c) {
         return 0;
     }
 }
-
 void infinixtopostfix(char infix[], char postfix[]) {
     int i = 0, j = 0;
     char c;
-
     while ((c = infix[i]) != '\0') {
        
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
@@ -94,7 +86,6 @@ void infinixtopostfix(char infix[], char postfix[]) {
 
     postfix[j] = '\0';  
 }
-
 int main() {
     char infix[MAX], postfix[MAX];
     printf("Enter the infix expression: ");
