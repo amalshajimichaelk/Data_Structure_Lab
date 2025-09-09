@@ -14,7 +14,6 @@ int main(){
     printf("Enter the power of %d term in the polynomial",i+1);
     scanf("%d",&p1[i].expo);
     }
-    
   printf("SECOND POLYNOMIAL\n");
   printf("Enter the NO: OF TERMS:");
   scanf("%d",&term2);
@@ -26,13 +25,11 @@ int main(){
     }
   i=j=0;
     while(i<term1&&j<term2){
-      
       if(p1[i].expo==p2[j].expo){
         p3[k].coef=p1[i].coef+p2[j].coef;
         p3[k].expo=p1[i].expo;
         k=k+1,i++,j++;
         }
-        
         else if(p1[i].expo>p2[j].expo){
         p3[k].coef=p1[i].coef;
         p3[k].expo=p1[i].expo;
@@ -44,23 +41,18 @@ int main(){
           k++,j++;
           }
       }
-    
-    
     while(i<term1){
     p3[k].coef=p1[i].coef;
     p3[k].expo=p1[i].expo;
     i++,k++;
     }
-    
     while(j<term2){
     p3[k].coef=p2[j].coef;
     p3[k].expo=p2[j].expo;
     j++,k++;
     }
-    
     for(int a=0;a<k;a++){
     printf(" %dX^%d ",p3[a].coef,p3[a].expo);
-    
     if(a<k-1){
     printf("+"); }
     }
