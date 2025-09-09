@@ -44,7 +44,8 @@ int precedence(char c) {
     }
 }
 int isOperator(char c) {
-    if (c == '^' || c == '*' || c == '/' || c == '+' || c == '-') {
+    if (c == '^' || c == '*' || c == '/' 
+        || c == '+' || c == '-') {
         return 1;
     } else {
         return 0;
@@ -55,7 +56,8 @@ void infinixtopostfix(char infix[], char postfix[]) {
     char c;
     while ((c = infix[i]) != '\0') {
        
-        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')) {
+        if ((c >= 'A' && c <= 'Z') ||
+            (c >= 'a' && c <= 'z')) {
             postfix[j++] = c;
         }
         else if(isdigit(c)){
@@ -73,7 +75,8 @@ void infinixtopostfix(char infix[], char postfix[]) {
             }
         }
         else if (isOperator(c)) {
-            while (top != -1 && isOperator(peek()) && precedence(peek()) >= precedence(c)) {
+            while (top != -1 && isOperator(peek()) && 
+                precedence(peek()) >= precedence(c)) {
                 postfix[j++] = pop();
             }
             push(c);
