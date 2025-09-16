@@ -4,7 +4,7 @@
 
 #define MAX 100
 
-// Doubly linked list node structure
+
 struct Node {
     char url[MAX];
     struct Node* prev;
@@ -13,7 +13,7 @@ struct Node {
 
 struct Node* current = NULL;
 
-// Function to create a new node
+
 struct Node* createNode(const char* url) {
     struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
     strcpy(newnode->url, url);
@@ -22,7 +22,7 @@ struct Node* createNode(const char* url) {
     return newnode;
 }
 
-// Free forward history from a given node
+
 void freeForwardHistory(struct Node* node) {
     while (node != NULL) {
         struct Node* temp = node;
@@ -31,7 +31,7 @@ void freeForwardHistory(struct Node* node) {
     }
 }
 
-// Visit a new page (clears forward history)
+
 void visitPage(const char* url) {
     // If there's forward history, free it
     if (current != NULL && current->next != NULL) {
@@ -51,7 +51,6 @@ void visitPage(const char* url) {
     printf("Visited: %s\n", url);
 }
 
-// Navigate backward
 void goBack() {
     if (current == NULL || current->prev == NULL) {
         printf("No previous page to go back to.\n");
@@ -61,7 +60,7 @@ void goBack() {
     printf("Went back to: %s\n", current->url);
 }
 
-// Navigate forward
+
 void goForward() {
     if (current == NULL || current->next == NULL) {
         printf("No forward page to go to.\n");
@@ -71,7 +70,7 @@ void goForward() {
     printf("Went forward to: %s\n", current->url);
 }
 
-// Show the current page
+
 void showCurrentPage() {
     if (current == NULL) {
         printf("No page currently open.\n");
@@ -82,11 +81,11 @@ void showCurrentPage() {
 
 // Free all nodes from the list (both directions)
 void freeAll() {
-    // Go to the beginning
+   
     while (current != NULL && current->prev != NULL)
         current = current->prev;
 
-    // Free all nodes forward
+    
     while (current != NULL) {
         struct Node* temp = current;
         current = current->next;
@@ -108,13 +107,13 @@ int main() {
         printf("5. Exit\n");
         printf("Choose an option: ");
         scanf("%d", &choice);
-        getchar(); // consume newline
+        getchar(); 
 
         switch (choice) {
             case 1:
                 printf("Enter URL: ");
                 fgets(url, MAX, stdin);
-                url[strcspn(url, "\n")] = 0; // remove trailing newline
+                url[strcspn(url, "\n")] = 0; 
                 visitPage(url);
                 break;
 
@@ -132,7 +131,7 @@ int main() {
 
             case 5:
                 printf("Exiting browser...\n");
-                freeAll(); // clean up memory
+                freeAll(); 
                 break;
 
             default:
